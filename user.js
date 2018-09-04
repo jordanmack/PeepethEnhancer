@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Peepeth Enhancer
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/jordanmack/PeepethEnhancer
 // @version      0.3.0
 // @description  Peepeth Enhancer is a collection of scripts that add several new features to Peepeth.
 // @author       Jordan Mack (jordanmack.info)
@@ -11,5 +11,5 @@
 (function() {
     'use strict';
 
-	jQuery(`<script src="https://cdn.rawgit.com/jordanmack/PeepethEnhancer/ee9121bf/peepeth-enhancer.js"></script>`).appendTo("body");
-});
+	jQuery.getScript("https://cdn.rawgit.com/jordanmack/PeepethEnhancer/live/peepeth-enhancer.js");
+})();

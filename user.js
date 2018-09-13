@@ -11,5 +11,5 @@
 (function() {
     'use strict';
 
-	jQuery.getScript("https://cdn.rawgit.com/jordanmack/PeepethEnhancer/live/peepeth-enhancer.js");
+	jQuery.getScript("https://rawgit.com/jordanmack/PeepethEnhancer/live/peepeth-enhancer.js");
 })();

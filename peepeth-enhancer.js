@@ -74,6 +74,9 @@
                 body.hideBadges .messageAvatarHolder a { display: none !important; }
                 body.hideBadges .messageAvatarHolder a.accountAvatar { display: inline-block !important; }
                 body.hideBadges #usAvatarHolder a { display: none; }
+
+                /* Replies */
+                body.hideReplies .message.reply { display: none; }
             </style>
         `;
         jQuery(css).appendTo("body");
@@ -102,6 +105,15 @@
     };
     updateHideBadges();
 
+    const updateHideReplies = function()
+    {
+        if(Cookies.get("peHideReplies") === "true")
+            jQuery("body").addClass("hideReplies");
+        else
+            jQuery("body").removeClass("hideReplies");
+    };
+    updateHideReplies();
+
     const createSidebarControls = function()
     {
         const newHtml =
@@ -112,12 +124,13 @@
                 <label><input type="checkbox" id="peShowNsfw" value="1">Auto Show #NSFW</label>
                 <label><input type="checkbox" id="peShowNew" value="1">Auto Show New Peeps</label>
                 <label><input type="checkbox" id="peHideBadges" value="1">Hide User Avatar Badges</label>
+                <label><input type="checkbox" id="peHideReplies" value="1">Hide Replies In Feed</label>
                 <label><input type="checkbox" id="peEnableDarkMode" value="1">Enable Dark Mode</label>
             </div>
         `;
         jQuery("#unsavedActionsSidebarHolder").after(newHtml);
 
-        const ids = ["peShowPolitics", "peShowNsfw", "peShowNew", "peEnableDarkMode", "peHideBadges"];
+        const ids = ["peShowPolitics", "peShowNsfw", "peShowNew", "peEnableDarkMode", "peHideBadges", "peHideReplies"];
         ids.forEach(function(id)
         {
             const $this = jQuery("#" + id);
@@ -135,6 +148,9 @@
 
                 if(id === "peHideBadges")
                     updateHideBadges();
+
+                if(id === "peHideReplies")
+                    updateHideReplies();
             });
         });
     };
@@ -150,6 +166,9 @@
 
         if(jQuery("#peShowNew").prop("checked") && jQuery(".loadNewPeepsHolderMobile>a").is(":visible"))
             showNewPeeps();
+
+        if(jQuery("#peHideReplies").prop("checked"))
+            jQuery("div.message > .messageParent").not(".reply").filter((i, e)=>(jQuery(e).height() > 0)).each((i, e)=>{jQuery(e).parent().addClass("reply");});
     };
     clickLoop();
     setInterval(clickLoop, 1000);

@@ -6,6 +6,7 @@ Peepeth Enhancer is a collection of scripts that add several new features to Pee
 * Automatically expand posts with the #NSFW tag.
 * Automatically show new peeps without having to click the button.
 * Hide the user avatar badges.
+* Hide reply posts from the feed.
 * Enable dark mode for ease of night time peeping.
 
 ## Installation 

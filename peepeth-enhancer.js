@@ -62,6 +62,7 @@
                 body.dark #accountSearchResults { background: transparent; }
                 body.dark #headerAvatarHolder .dropdown-content { background: #243447; color: #dddddd; }
                 body.dark #headerAvatarHolder .dropdown-content a:hover { background: #1da1f2; }
+                body.dark .accountPreviewBody { background: #1b2836; }
 
                 #headerImg .show-for-medium img.dark { display: none; }
                 body.dark #headerImg .show-for-medium img { display: none; }

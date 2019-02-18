@@ -77,7 +77,7 @@
                 body.hideBadges #usAvatarHolder a { display: none; }
 
                 /* Replies */
-                body.hideReplies .messagesHolder .message.reply { display: none; }
+                body.hideReplies #mainHolder .messagesHolder .message.reply { display: none; }
             </style>
         `;
         jQuery(css).appendTo("body");
